@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JSSample</title>
+<title>Metro</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
+    <select id = "SelectStation">
+    </select>
+    <button id="GoButton">Go</button>
+    <div>
+        <table id = "Arrivals">
+            <th>Train Arrivals Stations</th>
+            <tr>
+                <td>Line</td>
+                <td>Cars</td>
+                <td>Destination</td>
+                <td>Minutes</td>
+            </tr>
+        </table>
+    </div>
 <script type="text/javascript">
+    
    $(function() {
       var params = {
          // Specify your subscription key
-         'api_key': '',
-      };
-      
+         'api_key': 'ab533e87ba0b48e2bf059204b7949fc0',
+      };   
+       
+        $("#GoButton").click(function(){
+            $("table#Arrivals tr#data").remove();
+            var station = $("#SelectStation").val();
+            $.ajax({
+                url: "https://api.wmata.com/StationPrediction.svc/GetPrediction/"+station+"?" + $.param(params),
+                dataType: "xml",
+                type: 'GET',
+            })
+            .success(function(data) {
+                $(data).find("AIMPredictionTrainInfo").each(function(){
+                    if($(this).find("LocationCode").text() == station){
+                        var arrival_line = $(this).find("Line").text();
+                        var arrival_car = $(this).find("Car").text();
+                        var arrival_dest = $(this).find("DestinationName").text();
+                        var arrival_min = $(this).find("Min").text();
+                        
+                        var input = $("<tr id='data'><td>"+arrival_line+"</td>");
+                        input.append("<td>"+arrival_car+"</td>");
+                        input.append("<td>"+arrival_dest+"</td>");
+                        input.append("<td>"+arrival_min+"</td></tr>");
+                        
+                        console.log(input);
+                        $("#Arrivals").append(input);
+                    }
+                });
+            })
+            .fail(function() {
+                alert("error");
+            });
+        });
+              
       $.ajax({
-         url: 'https://api.wmata.com/StationPrediction.svc/GetPrediction/{StationCodes}?' + $.param(params),
-         type: 'GET',
+        url: "https://api.wmata.com/Rail.svc/Stations?" + $.param(params),
+        dataType: "xml",
+        type: 'GET',
       })
-      .done(function(data) {
-         alert("success");
+      .success(function(data) {
+          var options = $("#SelectStation");
+          $(data).find("Station").each(function(){
+                var station_name = $(this).find("Name").text();
+                var station_code = $(this).find("Code").text();
+                var sel = $("<option value="+station_code+">");
+                sel.append(station_name);
+                sel.append("</option>");
+                $("#SelectStation").append(sel);
+            });
       })
       .fail(function() {
          alert("error");

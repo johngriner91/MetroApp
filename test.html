@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 <title>Metro</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
     <select id = "SelectStation">
     </select>
+    <input class="btn btn-default" type="button" value="Go" id="GoButton">
     <button id="GoButton">Go</button>
     <div>
-        <table id = "Arrivals">
-            <th>Train Arrivals Stations</th>
-            <tr>
-                <td>Line</td>
-                <td>Cars</td>
-                <td>Destination</td>
-                <td>Minutes</td>
-            </tr>
-        </table>
+      <table class="table table-striped" id="Arrivals">
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Cars</th>
+            <th>Destination</th>
+            <th>Minutes</th>
+        </tr>
+      </thead>
+      </table>
     </div>
 <script type="text/javascript">
-    
+
    $(function() {
       var params = {
          // Specify your subscription key
          'api_key': 'ab533e87ba0b48e2bf059204b7949fc0',
-      };   
-       
+      };
+
         $("#GoButton").click(function(){
             $("table#Arrivals tr#data").remove();
             var station = $("#SelectStation").val();
@@ -42,12 +48,12 @@
                         var arrival_car = $(this).find("Car").text();
                         var arrival_dest = $(this).find("DestinationName").text();
                         var arrival_min = $(this).find("Min").text();
-                        
+
                         var input = $("<tr id='data'><td>"+arrival_line+"</td>");
                         input.append("<td>"+arrival_car+"</td>");
                         input.append("<td>"+arrival_dest+"</td>");
                         input.append("<td>"+arrival_min+"</td></tr>");
-                        
+
                         console.log(input);
                         $("#Arrivals").append(input);
                     }
@@ -57,7 +63,7 @@
                 alert("error");
             });
         });
-              
+
       $.ajax({
         url: "https://api.wmata.com/Rail.svc/Stations?" + $.param(params),
         dataType: "xml",

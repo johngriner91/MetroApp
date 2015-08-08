@@ -1,0 +1,40 @@
+html {
+  margin-top: 40px;
+}
+
+body {
+  background-color: grey;
+}
+
+.center-table
+{
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+#Selectors {
+  margin: 0 auto !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: none !important;
+  text-align: center;
+  vertical-align: center;
+}
+
+.title_bar {
+  margin: 0 auto !important;
+  float: none !important;
+  text-align: center;
+  background-color:white;
+  vertical-align: center;
+  width:30%;
+  border-radius: 15px;
+}
+
+#Arrivals {
+  width: 80%;
+  align: center;
+  background-color:white;
+  vertical-align: center;
+  border-radius: 5px;
+}

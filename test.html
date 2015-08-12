@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <title>Metro App</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h3 class="title_bar">When is the next train?</h3>
+    <div id="Selectors">
+      <select id = "SelectStation"></select>
+      <input class="btn btn-default" type="button" value="Go" id="GoButton">
+    </div>
+    <div class="container">
+      <table class="table table-striped center-table" id="Arrivals">
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Cars</th>
+            <th>Destination</th>
+            <th>Minutes</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

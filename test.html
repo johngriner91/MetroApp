@@ -118,16 +118,37 @@
         .success(function(data) {
           var options = $("#SelectStation");
           var list_names = [];
+          var stations = [];
           $(data).find("Station").each(function(){
             var station_name = $(this).find("Name").text();
             var station_code = $(this).find("Code").text();
-            list_names.push(station_name);
+            stations.push(station_name);
+            stations.push(station_code);
 
-            var sel = $("<option value="+station_code+">");
-            sel.append(station_name);
-            sel.append("</option>");
-            $("#SelectStation").append(sel);
+            list_names.push(stations);
+            stations = [];
           });
+
+          list_names.sort(function(a, b){
+            if(a[0] < b[0]) return -1;
+            if(a[0] > b[0]) return 1;
+            return 0;
+          });
+
+          for(i = 0; i < list_names.length; i++){
+            var pass = true;
+            for(j = 0; j < i; j++){
+              if(list_names[j][0] == list_names[i][0]){
+                pass = false;
+              }
+            }
+            if(Boolean(pass)){
+              var sel = $("<option value="+list_names[i][1]+">");
+              sel.append(list_names[i][0]);
+              sel.append("</option>");
+              $("#SelectStation").append(sel);
+            }
+          }
         })
 
         .fail(function() {

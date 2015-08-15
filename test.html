@@ -2,7 +2,7 @@
 <html>
   <head>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     <title>Metro App</title>
@@ -10,22 +10,47 @@
   </head>
 
   <body>
-    <h3 class="title_bar">When is the next train?</h3>
-    <div id="Selectors">
-      <select id = "SelectStation"></select>
-      <input class="btn btn-default" type="button" value="Go" id="GoButton">
-    </div>
-    <div class="container">
-      <table class="table table-striped center-table" id="Arrivals">
-        <thead>
-          <tr>
-            <th>Line</th>
-            <th>Cars</th>
-            <th>Destination</th>
-            <th>Minutes</th>
-          </tr>
-        </thead>
-      </table>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-md-8 vcenter">
+          <h3 id="title_bar">When is the next train?</h3>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+
+      <div class="row row-padding">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><select id="SelectStation"></select></div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row row-padding">
+        <div class="col-md-4"></div>
+          <div class="col-md-4 col-centered">
+            <input class="btn btn-xs" type="button" value="Go" id="GoButton">
+          </div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <table class="table table-condensed center-table" id="Arrivals">
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Cars</th>
+                  <th>Destination</th>
+                  <th>Minutes</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
     </div>
     <script src="./js/script.js"></script>
   </body>

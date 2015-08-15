@@ -1,8 +1,10 @@
-html {
-  margin-top: 40px;
+html
+{
+  margin-top: 25px;
 }
 
-body {
+body
+{
   background-color: grey;
 }
 
@@ -12,28 +14,30 @@ body {
   float: none !important;
 }
 
-#Selectors {
-  margin: 0 auto !important;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: none !important;
+.row-padding
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#Selectors
+{
   text-align: center;
   vertical-align: center;
 }
 
-.title_bar {
-  margin: 0 auto !important;
-  float: none !important;
+#title_bar
+{
   text-align: center;
   background-color:white;
-  vertical-align: center;
-  width:30%;
-  border-radius: 15px;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-#Arrivals {
-  width: 80%;
-  align: center;
+#Arrivals
+{
   background-color:white;
   vertical-align: center;
   border-radius: 5px;

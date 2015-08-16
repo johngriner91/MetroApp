@@ -1,12 +1,10 @@
+'use strict';
+
 var express = require('express');
 var app = express();
 
-app.use(express.static('css'));
-app.use(express.static('js'));
-
-app.get('/', function (req, res) {
-  res.sendFile('index.html',{ root: '/Users/John/Documents/GitHub/MetroApp' });
-});
+app.use('/bower_components/', express.static('../bower_components'));
+app.use(express.static('../client'));
 
 var server = app.listen(8888, function () {
   var host = server.address().address;

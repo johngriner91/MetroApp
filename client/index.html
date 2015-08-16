@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="/text/css" href="styles/index.css">
+
+    <title>Metro App</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-md-8 vcenter">
+          <h3 id="title_bar">When is the next train?</h3>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+
+      <div class="row row-padding">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><select id="SelectStation"></select></div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row row-padding">
+        <div class="col-md-4"></div>
+          <div class="col-md-4 col-centered">
+            <input class="btn btn-xs" type="button" value="Go" id="GoButton">
+          </div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <table class="table table-condensed center-table" id="Arrivals">
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Cars</th>
+                  <th>Destination</th>
+                  <th>Minutes</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

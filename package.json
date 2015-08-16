@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/johngriner91/MetroApp/issues"
   },
-  "homepage": "https://github.com/johngriner91/MetroApp"
+  "homepage": "https://github.com/johngriner91/MetroApp",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
